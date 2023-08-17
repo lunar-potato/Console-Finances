@@ -87,23 +87,37 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// Getting Total Number of Months
-var numberOfMonths = finances.length
-console.log(`Total Months: ${numberOfMonths}`);
+console.log(`Financial Analysis`);
 
-var netTotal = 0
+// Getting Total Number of Months
+var numberOfMonths = finances.length;
+console.log(`Total Months: ${numberOfMonths} months`);
+
+var netTotal = 0;
+var differences = 0;
+var greatestIncrease = 0;
+var greatestDecrease = 0;
+
 for (let i = 0; i < finances.length; i++) {
   // console.log(finances[i][1]) --> Getting the index for number inside the subarray
-  netTotal += finances[i][1]
+  netTotal += finances[i][1];
+  // getting differences + getting total from change
+  if (i > 0) {
+    diff = finances[i][1] - finances [i-1][1];
+    if (diff > greatestIncrease) {
+      greatestIncrease = diff
+    }
+    // differences += diff;
+    if (diff < greatestDecrease) {
+      greatestDecrease = diff
+    }
+    differences += diff;
+  }
 }
-console.log(`Net Total: $${netTotal}`)
+console.log(`Net Total: $${netTotal}`);
 
 // Getting average for changes
-console.log(netTotal / (numberOfMonths - 1))
+console.log(differences / (numberOfMonths - 1));
 
-//get highest number from the number index
-var greatestIncrease = 0;
-
-// for (let i = 0; i < finances.length; i++) {
-//   if 
-// }
+console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease}`);
+console.log(`Greatest Increase in Profits/Losses:${greatestDecrease}`);
