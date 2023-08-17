@@ -86,3 +86,24 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Getting Total Number of Months
+var numberOfMonths = finances.length
+console.log(`Total Months: ${numberOfMonths}`);
+
+var netTotal = 0
+for (let i = 0; i < finances.length; i++) {
+  // console.log(finances[i][1]) --> Getting the index for number inside the subarray
+  netTotal += finances[i][1]
+}
+console.log(`Net Total: $${netTotal}`)
+
+// Getting average for changes
+console.log(netTotal / (numberOfMonths - 1))
+
+//get highest number from the number index
+var greatestIncrease = 0;
+
+// for (let i = 0; i < finances.length; i++) {
+//   if 
+// }
