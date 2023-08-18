@@ -97,6 +97,9 @@ var netTotal = 0;
 var differences = 0;
 var greatestIncrease = 0;
 var greatestDecrease = 0;
+var averageChange = 0;
+var greatestMonth;
+var worstMonth;
 
 for (let i = 0; i < finances.length; i++) {
   // console.log(finances[i][1]) --> Getting the index for number inside the subarray
@@ -106,18 +109,26 @@ for (let i = 0; i < finances.length; i++) {
     diff = finances[i][1] - finances [i-1][1];
     if (diff > greatestIncrease) {
       greatestIncrease = diff
+      greatestMonth = greatestIncrease
+      greatestMonth = [finances[i][0]]
     }
-    // differences += diff;
+    // getting the greatest decrease 
     if (diff < greatestDecrease) {
       greatestDecrease = diff
+      worstMonth = greatestDecrease
+      worstMonth = [finances[i][0]]
     }
     differences += diff;
   }
 }
 console.log(`Net Total: $${netTotal}`);
 
-// Getting average for changes
-console.log(differences / (numberOfMonths - 1));
-
-console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease}`);
-console.log(`Greatest Increase in Profits/Losses:${greatestDecrease}`);
+//Syntax and formula for average for changes
+averageChange = differences / (numberOfMonths-1);
+// Formatting answer to get till 2 decimal places
+var fixedAverage = averageChange.toFixed(2);
+// Printing average for changes
+console.log(`Average changes: ${fixedAverage}`);
+// Printing greatest increase/decrease
+console.log(`Greatest Increase in Profits/Losses: ${greatestMonth} ($${greatestIncrease})`);
+console.log(`Greatest Decrease in Profits/Losses: ${worstMonth} ($${greatestDecrease})`);
