@@ -124,6 +124,7 @@ var fixedAverage = averageChange.toFixed(2);
 
 // Printing all outputs in one single console.log
 console.log(`Financial Analysis \n
+------------------------- \n
 Total Months: ${numberOfMonths} months \n
 Net Total: $${netTotal} \n
 Average changes: ${fixedAverage} \n
