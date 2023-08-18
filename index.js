@@ -86,13 +86,8 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-
-console.log(`Financial Analysis`);
-
 // Getting Total Number of Months
 var numberOfMonths = finances.length;
-console.log(`Total Months: ${numberOfMonths} months`);
-
 var netTotal = 0;
 var differences = 0;
 var greatestIncrease = 0;
@@ -121,14 +116,16 @@ for (let i = 0; i < finances.length; i++) {
     differences += diff;
   }
 }
-console.log(`Net Total: $${netTotal}`);
 
 //Syntax and formula for average for changes
 averageChange = differences / (numberOfMonths-1);
 // Formatting answer to get till 2 decimal places
 var fixedAverage = averageChange.toFixed(2);
-// Printing average for changes
-console.log(`Average changes: ${fixedAverage}`);
-// Printing greatest increase/decrease
-console.log(`Greatest Increase in Profits/Losses: ${greatestMonth} ($${greatestIncrease})`);
-console.log(`Greatest Decrease in Profits/Losses: ${worstMonth} ($${greatestDecrease})`);
+
+// Printing all outputs in one single console.log
+console.log(`Financial Analysis \n
+Total Months: ${numberOfMonths} months \n
+Net Total: $${netTotal} \n
+Average changes: ${fixedAverage} \n
+Greatest Increase in Profits/Losses: ${greatestMonth} ($${greatestIncrease}) \n
+Greatest Decrease in Profits/Losses: ${worstMonth} ($${greatestDecrease})`)
