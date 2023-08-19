@@ -87,14 +87,14 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 // Getting Total Number of Months
-var numberOfMonths = finances.length;
-var netTotal = 0;
-var differences = 0;
-var greatestIncrease = 0;
-var greatestDecrease = 0;
-var averageChange = 0;
-var greatestMonth;
-var worstMonth;
+const numberOfMonths = finances.length;
+let netTotal = 0;
+let differences = 0;
+let greatestIncrease = 0;
+let greatestDecrease = 0;
+let averageChange = 0;
+let greatestMonth;
+let worstMonth;
 
 for (let i = 0; i < finances.length; i++) {
   // console.log(finances[i][1]) --> Getting the index for number inside the subarray
@@ -120,7 +120,7 @@ for (let i = 0; i < finances.length; i++) {
 //Syntax and formula for average for changes
 averageChange = differences / (numberOfMonths-1);
 // Formatting answer to get till 2 decimal places
-var fixedAverage = averageChange.toFixed(2);
+let fixedAverage = averageChange.toFixed(2);
 
 // Printing all outputs in one single console.log
 console.log(`Financial Analysis \n
