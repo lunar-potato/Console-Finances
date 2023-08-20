@@ -86,6 +86,7 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
 // Getting Total Number of Months
 const numberOfMonths = finances.length;
 let netTotal = 0;
@@ -97,28 +98,35 @@ let greatestMonth;
 let worstMonth;
 
 for (let i = 0; i < finances.length; i++) {
+
   // console.log(finances[i][1]) --> Getting the index for number inside the subarray
   netTotal += finances[i][1];
+
   // getting differences + getting total from change
   if (i > 0) {
-    diff = finances[i][1] - finances [i-1][1];
+
+    diff = finances[i][1] - finances[i - 1][1];
+    
     if (diff > greatestIncrease) {
       greatestIncrease = diff
       greatestMonth = greatestIncrease
       greatestMonth = [finances[i][0]]
     }
-    // getting the greatest decrease 
+
+    // getting the greatest dec rease 
     if (diff < greatestDecrease) {
       greatestDecrease = diff
       worstMonth = greatestDecrease
       worstMonth = [finances[i][0]]
     }
+
     differences += diff;
   }
 }
 
 //Syntax and formula for average for changes
-averageChange = differences / (numberOfMonths-1);
+averageChange = differences / (numberOfMonths - 1);
+
 // Formatting answer to get till 2 decimal places
 let fixedAverage = averageChange.toFixed(2);
 
